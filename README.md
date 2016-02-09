@@ -21,3 +21,14 @@ This is a basic personal blog web app using Laravel 5
     # Check if laravel installer is installed correctly
     $ laravel -V
     Laravel Installer version 1.3.1
+
+### Dev workflow
+
+    # Install dependencies
+    composer install
+
+    # Run database migrations
+    php artisan migrate
+
+    # Run the server
+    php artisan serve
