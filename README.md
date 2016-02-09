@@ -25,7 +25,7 @@ This is a basic personal blog web app using Laravel 5
 ### Dev workflow
 
     # Install dependencies
-    composer install
+    composer install --prefer-dist
 
     # Run database migrations
     php artisan migrate
