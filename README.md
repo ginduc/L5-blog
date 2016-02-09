@@ -32,3 +32,11 @@ This is a basic personal blog web app using Laravel 5
 
     # Run the server
     php artisan serve
+
+### DB migrations
+
+    # Create a new migration to create a database table
+    php artisan make:migration create_posts_table --create=posts
+
+    # Run database migrations
+    php artisan migrate
