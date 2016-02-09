@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Log;
 use Response;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -47,6 +48,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make(Input::all(), [
+            'post_title' => 'required|min:2|max:50',
+            'post_content' => 'required|min:2|max:1024',
+            'post_date' => 'required',
+            'post_author' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+          return Response::json(array('errors' => $validator->messages()), 400);
+        }
+
         $post = new Post;
         $post->post_title = Input::get('post_title');
         $post->post_content = Input::get('post_content');
