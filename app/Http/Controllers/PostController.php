@@ -20,8 +20,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all(array('id', 'post_title', 'post_date',
-            'post_content', 'post_author', 'created_at'));
+        $posts = Post::orderBy('post_date', 'desc')->
+            orderBy('created_at', 'desc')->get(
+              array('id', 'post_title', 'post_date', 'post_content',
+                'post_author', 'created_at'));
         return Response::json(array(
             'posts' => $posts
         ), 200);
