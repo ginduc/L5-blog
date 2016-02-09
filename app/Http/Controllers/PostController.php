@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -42,6 +44,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $post = new Post;
+        $post->post_title = Input::get('post_title');
+        $post->post_content = Input::get('post_content');
+        $post->post_date = Input::get('post_date');
+        $post->post_author = Input::get('post_author');
+        $post->post_status = 'draft';
+        $saved = $post->save();
+
+        if(!$saved) {
+            abort(502, 'Please try again');
+        }
+
+        return Response::json(array(
+            'msg' => 'Success'
+        ), 201);
     }
 
     /**
