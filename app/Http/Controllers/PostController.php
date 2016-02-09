@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Response;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -16,6 +18,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        $posts = Post::all(array('id', 'post_title', 'post_date', 'post_content', 'post_author'));
+        return Response::json(array(
+            'posts' => $posts
+        ), 200);
     }
 
     /**
