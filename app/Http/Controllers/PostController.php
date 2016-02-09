@@ -20,7 +20,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all(array('id', 'post_title', 'post_date', 'post_content', 'post_author'));
+        $posts = Post::all(array('id', 'post_title', 'post_date',
+            'post_content', 'post_author', 'created_at'));
         return Response::json(array(
             'posts' => $posts
         ), 200);
@@ -69,7 +70,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post= Post::find($id, array('id', 'post_title', 'post_date', 'post_content', 'post_author'));
+        $post= Post::find($id, array('id', 'post_title', 'post_date',
+            'post_content', 'post_author', 'created_at'));
         return Response::json($post, 200);
     }
 
