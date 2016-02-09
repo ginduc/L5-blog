@@ -2,7 +2,7 @@ Blog App (using Laravel 5)
 ==========================
 This is a basic personal blog web app using Laravel 5
 
-### Local dev environment
+### Local dev environment setup
 
     # Ensure php is installed
     $ php -v
