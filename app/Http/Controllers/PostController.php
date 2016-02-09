@@ -69,6 +69,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        $post= Post::find($id, array('id', 'post_title', 'post_date', 'post_content', 'post_author'));
+        return Response::json($post, 200);
     }
 
     /**
