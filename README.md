@@ -33,6 +33,9 @@ This is a basic personal blog web app using Laravel 5
     # Run the server
     php artisan serve
 
+    # Running unit tests
+    vendor/bin/phpunit -v --debug tests/PostResourceTest.php
+
 ### DB migrations
 
     # Create a new migration to create a database table
