@@ -72,7 +72,7 @@ class PostController extends Controller
         }
 
         return Response::json(array(
-            'msg' => 'Success'
+            'id' => $post->id
         ), 201);
     }
 
