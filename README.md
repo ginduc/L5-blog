@@ -40,3 +40,9 @@ This is a basic personal blog web app using Laravel 5
 
     # Run database migrations
     php artisan migrate
+
+    # Seeding the database
+    php artisan db:seed
+
+    # Re-seeding the database
+    php artisan migrate:refresh --seed
